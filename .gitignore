@@ -1,0 +1,8 @@
+/vendor
+/db/sqlite.db
+/app/Config.php.prod
+/app/Config.php
+composer.phar
+composer.lock
+composer.back
+composer.json.dev

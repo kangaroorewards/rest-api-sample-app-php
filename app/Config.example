@@ -1,0 +1,23 @@
+<?php
+
+namespace App;
+
+class Config
+{
+    /**
+     * path to the sqlite file
+     */
+    const SQLITE_DB = 'db/sqlite.db';//it will be automatically created
+
+    const CLIENT_ID = 'YOUR APP ID';
+    const CLIENT_SECRET = 'YOUR APP CIENT SECRET CODE';
+    const KANGAROO_API_BASE_URL = 'https://api.kangaroorewards.com';
+
+    const REDIRECT_URI_MAIN = 'YOUR APP MAIN PAGE URL HERE';//EX: http://localhost/index.php
+    const REDIRECT_URI_OAUTH = 'YOUR APP CALLBACK URL HERE'; //EX: http://localhost/callback.php
+
+    const DEMO_CUSTOMER_ID = '11E6A2EDE081E011B7BC040142659401';
+    const OAUTH_STATE_TOKEN = 'N6OC7oKtVxBGpkzhyCIxJEuOSIQRYCiA'; //any random string
+    const GOOGLE_MAPS_KEY = 'YOUR GOOGLE MAPS KEY HERE';
+    const STORE_TOKEN_IN = 'database'; //or "session"
+}
