@@ -8,12 +8,15 @@ The following versions of PHP are supported.
 
 ## Installation
 
-1. Download the zip file or clone https://github.com/kangaroorewards/rest-api-sample-app-php.git in a folder and type in the console:
+- Download the zip file or clone https://github.com/kangaroorewards/rest-api-sample-app-php.git in a folder and type in the console:
+
 ```
 composer install
 ```
-2. Rename the configuration file from Config.example to Config.php in "app" folder
-3. Change the urls and your Client ID and Secret in the config file
+
+- Rename the configuration file from Config.example to Config.php in "app" folder
+
+- Change the urls and your Client ID and Secret in the config file
 
 ## Usage
 
