@@ -1,7 +1,7 @@
 /vendor
-/db/sqlite.db
 /app/Config.php.prod
 /app/Config.php
+sqlite.db
 composer.phar
 composer.lock
 composer.back
