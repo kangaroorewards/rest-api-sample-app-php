@@ -7,7 +7,7 @@ class Config
     /**
      * path to the sqlite file
      */
-    const SQLITE_DB = 'sqlite.db';//it will be automatically created
+    const SQLITE_DB = 'storage/sqlite.db';//it will be automatically created
 
     const CLIENT_ID = 'YOUR APP ID';
     const CLIENT_SECRET = 'YOUR APP CIENT SECRET CODE';

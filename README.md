@@ -15,8 +15,8 @@ composer install
 ```
 
 - Rename the configuration file from Config.example to Config.php in "app" folder
-
-- Change the urls and your Client ID and Secret in the config file
+- Change the app urls and your Client ID and Secret in the config file
+- Configure some permissions. The ```db``` directory should be writable by your web server
 
 ## Usage
 
