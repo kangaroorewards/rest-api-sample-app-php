@@ -1,5 +1,6 @@
 /vendor
 /app/Config.php.prod
+/app/Config.php.dev
 /app/Config.php
 /storage/sqlite.db
 composer.phar

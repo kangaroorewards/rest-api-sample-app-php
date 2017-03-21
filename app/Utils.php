@@ -83,16 +83,16 @@ class Utils
         $r = [];
         $offerType = $offerItem['type'];
 
-        if ($offerType == 1) {
+        if ($offerType == 'points_multiplier') {
             $r[] = $offerItem['multip_factor'] . 'x';
             $r[] = 'The Points';
-        } elseif ($offerType == 2 || $offerType == 5 || $offerType == 8 || $offerType == 11) {
+        } elseif ($offerType == 'free_product' || $offerType == 5 || $offerType == 8 || $offerType == 11) {
             $r[] = 'Free';
             $r[] = '';
         } elseif ($offerType == 3) {
             $r[] = $offerItem['units_awarded'] != '' ? $offerItem['units_awarded'] : 0;
             $r[] = 'Points';
-        } elseif ($offerType == 4) {
+        } elseif ($offerType == 'visits_multiplier') {
             $r[] = $offerItem['multip_factor'] . 'x';
             $r[] = 'The Punch';
         } elseif ($offerType == 6 || $offerType == 9 || $offerType == 12) {

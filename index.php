@@ -24,15 +24,17 @@ try {
         'access_token' => $accessToken->getToken(),
         'base_api_url' => Config::KANGAROO_API_BASE_URL,
     ]);
+    
+    // print_r($accessToken->getToken()); die;
 
     $customer = $api->getCustomer(Config::DEMO_CUSTOMER_ID, ['include' => ['balance']]); //print_r($customer); die;
 
-    $resourceOwner = $api->me(['include' => ['offers', 'giftcards', 'products', 'catalog', 'social']]);
+    $resourceOwner = $api->me(['include' => ['offers', 'giftcards', 'products', 'catalog_items', 'social_media']]);
 
     $business = $resourceOwner['business'];
     $offers = isset($resourceOwner['offers']) ? $resourceOwner['offers'] : null;
     $giftCards = isset($resourceOwner['giftcards']) ? $resourceOwner['giftcards'] : null;
-    $rewards = isset($resourceOwner['catalog']) ? $resourceOwner['catalog'] : null;
+    $rewards = isset($resourceOwner['catalog_items']) ? $resourceOwner['catalog_items'] : null;
     $products = isset($resourceOwner['products']) ? $resourceOwner['products'] : null;
     $socialMediaLinks = isset($resourceOwner['social_media']) ? $resourceOwner['social_media'] : null;
     $currencySymbol = $resourceOwner['settings']['currency']['symbol'];
@@ -84,10 +86,10 @@ $ver = 1;
             <div class="inner">
                 <h2><?php echo $business['name'] ?></h2>
 
-                <?php if ($customer['balance']['active_points'] > 0): ?>
+                <?php if ($customer['balance']['units'] > 0): ?>
                     <div class="customer-balance">
-                        <?php echo $customer['balance']['active_points'] ?> pts |
-                        <?php echo number_format(($customer['balance']['active_points'] / 100), 2, '.', ',') . ' ' . $currencySymbol; ?>
+                        <?php echo $customer['balance']['units'] ?> pts |
+                        <?php echo number_format(($customer['balance']['units'] / 100), 2, '.', ',') . ' ' . $currencySymbol; ?>
                     </div>
                 <?php endif?>
 
