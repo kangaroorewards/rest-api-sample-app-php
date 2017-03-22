@@ -90,7 +90,7 @@ class Utils
             $r[] = 'Free';
             $r[] = '';
         } elseif ($offerType == 'bonus_points') {
-            $r[] = (int) $offerItem['units_awarded'];
+            $r[] = (int) $offerItem['units'];
             $r[] = 'Points';
         } elseif ($offerType == 'visits_multiplier') {
             $r[] = $offerItem['multip_factor'] . 'x';
