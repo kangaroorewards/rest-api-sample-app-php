@@ -86,22 +86,22 @@ class Utils
         if ($offerType == 'points_multiplier') {
             $r[] = $offerItem['multip_factor'] . 'x';
             $r[] = 'The Points';
-        } elseif ($offerType == 'free_product' || $offerType == 5 || $offerType == 8 || $offerType == 11) {
+        } elseif ($offerType == 'free_product' || $offerType == 'bonus_product') {
             $r[] = 'Free';
             $r[] = '';
-        } elseif ($offerType == 3) {
-            $r[] = $offerItem['units_awarded'] != '' ? $offerItem['units_awarded'] : 0;
+        } elseif ($offerType == 'bonus_points') {
+            $r[] = (int) $offerItem['units_awarded'];
             $r[] = 'Points';
         } elseif ($offerType == 'visits_multiplier') {
             $r[] = $offerItem['multip_factor'] . 'x';
             $r[] = 'The Punch';
-        } elseif ($offerType == 6 || $offerType == 9 || $offerType == 12) {
+        } elseif ($offerType == 'discount_percentage') {
             $r[] = $offerItem['discount_value'] . '% ';
             $r[] = 'OFF';
-        } elseif ($offerType == 7 || $offerType == 10 || $offerType == 13) {
+        } elseif ($offerType == 'discount_amount') {
             $r[] = $offerItem['discount_value'] . $currencySymbol . ' ';
             $r[] = 'OFF';
-        } elseif ($offerType == 14) {
+        } elseif ($offerType == 'giftcard') {
             if ($offerItem['real_value'] == $offerItem['discount_value']) {
                 $r[] = $offerItem['real_value'] . $currencySymbol;
                 $r[] = '';
@@ -109,12 +109,12 @@ class Utils
                 $r[] = $offerItem['real_value'] . $currencySymbol;
                 $r[] = $offerItem['discount_value'] . $currencySymbol;
             }
-        } elseif ($offerType == 15 || $offerType == 16) {
+        } elseif ($offerType == 'redeem_free_product') {
             $r[] = $offerItem['units'];
             $r[] = ($offerItem['units'] == 1) ? 'Point' : 'Points';
-        } elseif ($offerType == 17) {
-            $r[] = $offerItem['units'];
-            $r[] = ($offerItem['units'] == 1) ? 'Punch' : 'Punches';
+        } elseif ($offerType == 'redeem_discount_amount') {
+            $r[] = $offerItem['amount_value'] . $currencySymbol;
+            $r[] = 'Cash Back';
         } else {
             $r = ['', ''];
         }
