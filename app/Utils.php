@@ -90,7 +90,7 @@ class Utils
             $r[] = 'Free';
             $r[] = '';
         } elseif ($offerType == 'bonus_points') {
-            $r[] = (int) $offerItem['units'];
+            $r[] = (int) $offerItem['points'];
             $r[] = 'Points';
         } elseif ($offerType == 'visits_multiplier') {
             $r[] = $offerItem['multip_factor'] . 'x';
@@ -110,8 +110,8 @@ class Utils
                 $r[] = $offerItem['discount_value'] . $currencySymbol;
             }
         } elseif ($offerType == 'redeem_free_product') {
-            $r[] = $offerItem['units'];
-            $r[] = ($offerItem['units'] == 1) ? 'Point' : 'Points';
+            $r[] = $offerItem['points'];
+            $r[] = ($offerItem['points'] == 1) ? 'Point' : 'Points';
         } elseif ($offerType == 'redeem_discount_amount') {
             $r[] = $offerItem['amount_value'] . $currencySymbol;
             $r[] = 'Cash Back';

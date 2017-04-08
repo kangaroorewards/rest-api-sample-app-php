@@ -86,10 +86,10 @@ $ver = 1;
             <div class="inner">
                 <h2><?php echo $business['name'] ?></h2>
 
-                <?php if ($customer['balance']['units'] > 0): ?>
+                <?php if ($customer['balance']['points'] > 0): ?>
                     <div class="customer-balance">
-                        <?php echo $customer['balance']['units'] ?> pts |
-                        <?php echo number_format(($customer['balance']['units'] / 100), 2, '.', ',') . ' ' . $currencySymbol; ?>
+                        <?php echo $customer['balance']['points'] ?> pts |
+                        <?php echo number_format(($customer['balance']['points'] / 100), 2, '.', ',') . ' ' . $currencySymbol; ?>
                     </div>
                 <?php endif?>
 
