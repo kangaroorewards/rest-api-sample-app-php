@@ -29,6 +29,7 @@ class Utils
      */
     public static function retrieveToken($kangaroo)
     {
+        // unset($_SESSION['kangaroo_access_token']);
         if (Config::STORE_TOKEN_IN == 'database') {
             $db = new DB;
             $dbToken = $db->getToken();
@@ -113,7 +114,7 @@ class Utils
             $r[] = $offerItem['points'];
             $r[] = ($offerItem['points'] == 1) ? 'Point' : 'Points';
         } elseif ($offerType == 'redeem_discount_amount') {
-            $r[] = $offerItem['amount_value'] . $currencySymbol;
+            $r[] = $offerItem['amount'] . $currencySymbol;
             $r[] = 'Cash Back';
         } else {
             $r = ['', ''];

@@ -23,22 +23,36 @@ try {
     $api = new KangarooApi([
         'access_token' => $accessToken->getToken(),
         'base_api_url' => Config::KANGAROO_API_BASE_URL,
+        'headers' => ['X-Application-Key' => Config::X_APPLICATION_KEY],
     ]);
     
     // print_r($accessToken->getToken()); die;
 
-    $customer = $api->getCustomer(Config::DEMO_CUSTOMER_ID, ['include' => ['balance']]); //print_r($customer); die;
+    try {
+        $customer = $api->getCustomer(Config::DEMO_CUSTOMER_ID, ['include' => 'balance,current_tier']);
+        $balance = $customer['included']['balance'];
+        $customer = $customer['data'];
+    } catch (\Exception $e) {
+        dd($e);
+    }
+    
+    // dd($customer);
 
-    $resourceOwner = $api->me(['include' => ['offers', 'giftcards', 'products', 'catalog_items', 'social_media']]);
+    try {
+        $resourceOwner = $api->me(['include' => 'settings,business,offers,giftcards,products,catalog_items,social_media']);
+    } catch (\Exception $e) {
+        dd($e);
+    }
 
-    $business = $resourceOwner['business'];
-    $offers = isset($resourceOwner['offers']) ? $resourceOwner['offers'] : null;
-    $giftCards = isset($resourceOwner['giftcards']) ? $resourceOwner['giftcards'] : null;
-    $rewards = isset($resourceOwner['catalog_items']) ? $resourceOwner['catalog_items'] : null;
-    $products = isset($resourceOwner['products']) ? $resourceOwner['products'] : null;
-    $socialMediaLinks = isset($resourceOwner['social_media']) ? $resourceOwner['social_media'] : null;
-    $currencySymbol = $resourceOwner['settings']['currency']['symbol'];
+    // dd($resourceOwner);
 
+    $business = $resourceOwner['included']['business'];
+    $offers = isset($resourceOwner['included']['offers']) ? $resourceOwner['included']['offers'] : null;
+    $giftCards = isset($resourceOwner['included']['giftcards']) ? $resourceOwner['included']['giftcards'] : null;
+    $rewards = isset($resourceOwner['included']['catalog_items']) ? $resourceOwner['included']['catalog_items'] : null;
+    $products = isset($resourceOwner['included']['products']) ? $resourceOwner['included']['products'] : null;
+    $socialMediaLinks = isset($resourceOwner['included']['social_media']) ? $resourceOwner['included']['social_media'] : null;
+    $currencySymbol = $business['settings']['currency']['symbol'];
 } catch (\League\OAuth2\Client\Provider\Exception\IdentityProviderException $ex) {
     // echo '<pre>'; var_export($ex); die;
     echo $ex->getMessage();
@@ -86,10 +100,10 @@ $ver = 1;
             <div class="inner">
                 <h2><?php echo $business['name'] ?></h2>
 
-                <?php if ($customer['balance']['points'] > 0): ?>
+                <?php if ($balance['points'] > 0): ?>
                     <div class="customer-balance">
-                        <?php echo $customer['balance']['points'] ?> pts |
-                        <?php echo number_format(($customer['balance']['points'] / 100), 2, '.', ',') . ' ' . $currencySymbol; ?>
+                        <?php echo $balance['points'] ?> pts |
+                        <?php echo number_format(($balance['points'] / 100), 2, '.', ',') . ' ' . $currencySymbol; ?>
                     </div>
                 <?php endif?>
 

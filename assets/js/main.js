@@ -200,24 +200,25 @@ function initMap()
     function handleData(branch)
     {
         var branchname = branch.name;
-        
+
         //getting the lat and long 
-        var address = branch.address.replace(new RegExp("\\\\", "g"), "")+', '+branch.city_name+', '+branch.region_name+', '+branch.country_name;
+        // var address = branch.address.formatted.replace(new RegExp("\\\\", "g"), "")+', '+branch.city_name+', '+branch.region_name+', '+branch.country_name;
+        var address = branch.address.formatted;
         
         geocoder = new google.maps.Geocoder();
         geocoder.geocode({
-        	'address': address
+        	'address': address.formatted
         }, function(results, status) {
 
-            if(branch.lat==null)
+            if(branch.address.lat==null)
                 var lat = results[0].geometry.location.lat();
             else
-                var lat = branch.lat;
+                var lat = branch.address.lat;
 
-            if(branch.long==null)
+            if(branch.address.long==null)
                 var lon = results[0].geometry.location.lng();
             else
-                var lon = branch.long;
+                var lon = branch.address.long;
 
             var branchLatLng = new google.maps.LatLng(lat,lon);
             var marker = new google.maps.Marker({
@@ -235,7 +236,7 @@ function initMap()
               '</div>'+
               '<div id="bodyContent">'+
                   '<div style="font-size:14px; font-weight: 500; color: #000">'+
-                        branch.address.replace(new RegExp("\\\\", "g"), "") +
+                        address +
                   '</div>'+
                   '<div style="font-size:14px; font-weight: 500; color: #54c1e2; ">'+
                         branchname +
@@ -265,13 +266,13 @@ function initMap()
 
     //called on map item hover, change address regarding the hovered business
     function buildBranchAddress (branch) {
-        var branchAddress = '';
+        // var branchAddress = '';
 
-        branchAddress+= branch.address.replace(new RegExp("\\\\", "g"), "") + '<br>';
-        branchAddress+=branch.city+ '<br>';
-        branchAddress+=branch.region+ '<br>';
-        branchAddress+=branch.country + '<br>';
+        // branchAddress+= branch.address.replace(new RegExp("\\\\", "g"), "") + '<br>';
+        // branchAddress+=branch.city+ '<br>';
+        // branchAddress+=branch.region+ '<br>';
+        // branchAddress+=branch.country + '<br>';
         
-        return branchAddress;
+        return branch.address.formatted;
     }
 }

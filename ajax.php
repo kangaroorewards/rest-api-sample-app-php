@@ -16,6 +16,7 @@ try {
     $api = new KangarooApi([
         'access_token' => $accessToken->getToken(),
         'base_api_url' => App\Config::KANGAROO_API_BASE_URL,
+        'headers' => ['X-Application-Key' => App\Config::X_APPLICATION_KEY],
     ]);
 
 } catch (Exception $e) {
@@ -30,8 +31,8 @@ try {
 header('Content-Type: application/json');
 
 if (isset($_GET['q']) && $_GET['q'] == 'branches') {
-    $resourceOwner = $api->me(['include' => ['branches']]);
-    $branches = $resourceOwner['branches'];
+    $resourceOwner = $api->me(['include' => 'branches']);
+    $branches = $resourceOwner['included']['branches'];
 
     header('HTTP/1.1 200 OK');
     echo json_encode($branches);

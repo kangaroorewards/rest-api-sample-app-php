@@ -46,6 +46,7 @@ try {
     // Try to get an access token (using the authorization code grant)
     $token = $kangaroo->getAccessToken('authorization_code', [
         'code' => $_GET['code'],
+        'scope' => 'admin',
     ]);
     
     App\Utils::storeToken($token);
