@@ -21,7 +21,7 @@
         "php": ">=5.6.0",
         "ext-curl": "*",
         "kangaroorewards/oauth2-kangaroo-rewards": "~1.0",
-        "kangaroorewards/kangaroorewards-php-sdk": "~1.0"
+        "kangaroorewards/kangaroorewards-php-sdk": "~2.0"
     },
     "autoload": {
         "psr-4": {

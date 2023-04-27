@@ -29,7 +29,7 @@ try {
     // print_r($accessToken->getToken()); die;
 
     try {
-        $customer = $api->getCustomer(Config::DEMO_CUSTOMER_ID, ['include' => 'balance,current_tier']);
+        $customer = $api->getCustomer(Config::DEMO_CUSTOMER_ID, ['include' => 'balance,tier_level']);
         $balance = $customer['included']['balance'];
         $customer = $customer['data'];
     } catch (\Exception $e) {
