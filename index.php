@@ -65,7 +65,6 @@ try {
 
 $ver = 1;
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -279,7 +278,7 @@ $ver = 1;
     <script src="assets/js/jquery.scrolly.min.js"></script>
     <script src="assets/js/skel.min.js"></script>
     <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="assets/js/main.js?v=<?php echo $ver; ?>"></script>
     <script src="assets/perfect-scrollbar/js/min/perfect-scrollbar.jquery.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=<?php echo Config::GOOGLE_MAPS_KEY;  ?>&callback=initMap" async defer></script>
 </body>
