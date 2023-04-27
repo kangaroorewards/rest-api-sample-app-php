@@ -20,4 +20,5 @@ class Config
     const OAUTH_STATE_TOKEN = 'N6OC7oKtVxBGpkzhyCIxJEuOSIQRYCiA'; //any random string
     const GOOGLE_MAPS_KEY = 'YOUR GOOGLE MAPS KEY HERE';
     const STORE_TOKEN_IN = 'database'; //or "session"
+    const X_APPLICATION_KEY = 'YOUR X_APPLICATION_KEY HERE';
 }

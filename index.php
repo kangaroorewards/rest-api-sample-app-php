@@ -129,7 +129,7 @@ $ver = 1;
 	                                            </div>
 	                                        </div>
 	                                        <div class="offer-title"><?php echo stripslashes($offer['title']); ?></div>
-	                                        <img src="<?php echo $offer['images'][0]['path']; ?>">
+	                                        <img src="<?php echo $offer['images'][0]['medium']; ?>">
 	                                    </div>
 	                                </li>
 	                            <?php endforeach?>
@@ -160,7 +160,7 @@ $ver = 1;
 	                                            </div>
 	                                        </div>
 	                                        <div class="offer-title"><?php echo stripslashes($giftCard['title']); ?></div>
-	                                        <img src="<?php echo $giftCard['images'][0]['path']; ?>">
+	                                        <img src="<?php echo $giftCard['images'][0]['medium']; ?>">
 	                                    </div>
 	                                </li>
 	                            <?php endforeach?>
@@ -190,7 +190,7 @@ $ver = 1;
 	                                        </div>
 	                                    </div>
 	                                    <div class="offer-title"><?php echo stripslashes($reward['title']); ?></div>
-	                                    <img src="<?php echo $reward['images'][0]['path']; ?>">
+	                                    <img src="<?php echo $reward['images'][0]['medium']; ?>">
 	                                </div>
 	                            </li>
 	                        <?php endforeach?>
@@ -222,7 +222,7 @@ $ver = 1;
 	                                        </div>
 	                                    <?php endif?>
                                     <div class="offer-title"><?php echo stripslashes($product['title']); ?></div>
-                                    <img src="<?php echo $product['images'][0]['path']; ?>">
+                                    <img src="<?php echo $product['images'][0]['medium']; ?>">
                                 </div>
                             </li>
                         <?php endforeach?>

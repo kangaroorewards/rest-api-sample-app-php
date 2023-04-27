@@ -31,14 +31,15 @@ if (isset($_GET['error'])) {
     header('Location: ' . $authUrl);exit;
 
     // Check given state against previously stored one to mitigate CSRF attack
-}
- elseif (empty($_GET['state']) ||
+} elseif (empty($_GET['state']) ||
     ($_GET['state'] !== $_SESSION['oauth2state'])
     // ($_GET['state'] !== OAUTH_STATE_TOKEN)
     ) {
 
-    unset($_SESSION['oauth2state']);
     echo 'Invalid state.';
+    dd($_SESSION['oauth2state'], false);
+    dd($_GET);
+    unset($_SESSION['oauth2state']);
     exit;
 }
 
