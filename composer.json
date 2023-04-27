@@ -18,7 +18,7 @@
         "loyalty"
     ],
     "require": {
-        "php": ">=5.6.0",
+        "php": ">=7.0",
         "ext-curl": "*",
         "kangaroorewards/oauth2-kangaroo-rewards": "~1.0",
         "kangaroorewards/kangaroorewards-php-sdk": "~2.0"
