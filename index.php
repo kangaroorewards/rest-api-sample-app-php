@@ -74,7 +74,7 @@ $ver = 1;
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Kangaroo Rewards - demo app</title>
     <link rel="stylesheet" href="assets/perfect-scrollbar/css/perfect-scrollbar.min.css?v=<?php echo $ver; ?>">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css?v=<?php echo $ver; ?>">
     <style type="text/css">
         .container {
             background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("<?php echo $business['cover_photo']; ?>");
@@ -129,7 +129,7 @@ $ver = 1;
 	                                            </div>
 	                                        </div>
 	                                        <div class="offer-title"><?php echo stripslashes($offer['title']); ?></div>
-	                                        <img src="<?php echo $offer['images'][0]['medium']; ?>">
+	                                        <img src="<?php echo $offer['images'][0]['medium'] ?? 'assets/images/placeholder.png'; ?>">
 	                                    </div>
 	                                </li>
 	                            <?php endforeach?>
@@ -160,7 +160,7 @@ $ver = 1;
 	                                            </div>
 	                                        </div>
 	                                        <div class="offer-title"><?php echo stripslashes($giftCard['title']); ?></div>
-	                                        <img src="<?php echo $giftCard['images'][0]['medium']; ?>">
+	                                        <img src="<?php echo $giftCard['images'][0]['medium'] ?? 'assets/images/placeholder.png'; ?>">
 	                                    </div>
 	                                </li>
 	                            <?php endforeach?>
@@ -190,7 +190,7 @@ $ver = 1;
 	                                        </div>
 	                                    </div>
 	                                    <div class="offer-title"><?php echo stripslashes($reward['title']); ?></div>
-	                                    <img src="<?php echo $reward['images'][0]['medium']; ?>">
+                                        <img src="<?php echo $reward['images'][0]['medium'] ?? 'assets/images/placeholder.png'; ?>">
 	                                </div>
 	                            </li>
 	                        <?php endforeach?>
@@ -222,7 +222,7 @@ $ver = 1;
 	                                        </div>
 	                                    <?php endif?>
                                     <div class="offer-title"><?php echo stripslashes($product['title']); ?></div>
-                                    <img src="<?php echo $product['images'][0]['medium']; ?>">
+                                    <img src="<?php echo $product['images'][0]['medium'] ?? 'assets/images/placeholder.png'; ?>">
                                 </div>
                             </li>
                         <?php endforeach?>
