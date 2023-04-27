@@ -4,6 +4,5 @@
 /app/Config.php
 /storage/sqlite.db
 composer.phar
-composer.lock
 composer.back
 composer.json.dev
