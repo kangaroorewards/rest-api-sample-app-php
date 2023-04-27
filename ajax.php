@@ -30,7 +30,7 @@ try {
 
 header('Content-Type: application/json');
 
-if (isset($_GET['q']) && $_GET['q'] == 'branches') {
+if (isset($_GET['q']) && $_GET['q'] === 'branches') {
     $resourceOwner = $api->me(['include' => 'branches']);
     $branches = $resourceOwner['included']['branches'];
 

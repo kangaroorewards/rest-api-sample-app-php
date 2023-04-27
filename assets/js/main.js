@@ -171,7 +171,7 @@ function initMap()
         //alert("Loading"); 
         var marker, i;
 
-        var url = 'ajax.php/?q=branches';
+        var url = 'ajax.php?q=branches';
         var name;
         var lat;
         var lon;
